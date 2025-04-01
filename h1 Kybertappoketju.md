@@ -144,6 +144,11 @@ Metasploitable2 verkkoasetukset
 Käyttää Host-only verkkoa
 ![Screenshot 2025-04-01 232547](https://github.com/user-attachments/assets/c0008d80-1483-4a5b-a236-e99e3f3a0d20)
 
+Todistus, että Metasploitable saa yhteyden Kaliin, mutta ei verkkoon. 
+
+![screenshot](https://github.com/user-attachments/assets/5e812bda-840b-4953-a461-061bc4b8af46)
+
+Todistus, että Kali saa yhteyden Metasploitableen, mutta ei verkkoon.
 
 ## Lähteet
 
