@@ -1,6 +1,31 @@
-# h1 Kybertappoketju
+# Kybertappoketju
 
 ## Tiivistelmät
+
+### Herrasmieshakkerit - Vastaamo
+
+Tässä podcast-jaksossa puhutaan Vastaamon tietomurrosta, jotka tapahtuivat vuonna 2018-2019. Vieraana on Keskusrikospoliisin ylikomissaario Marko Leponen, joka oli tietomurron tutkinnanjohtaja.  
+Jaksossa keskustellaan tietomurron teknisestä toteutuksesta ja Aleksanteri Kivimäen virheistä jotka johtivat hänen kiinnijäämiseensä.  
+
+### Hutchis et al 2011
+
+Tämä teksti kertoo kybertappoketjun eri vaiheista
+
+- Tiedustelu: Tutkitaan ja tiedustellaan kohdetta
+- Aseistus: Rakennetaan paketti, joka sisältää troijalaisen
+- Toimitus: Aseistettu paketti lähetetään kohteeseen
+- Hyväksikäyttö: Aseistettu paketti ottaa hyökätyn koneen haltuun
+- Asennus: Asennetaan haittaohjelma etäyhteyden avulla, jotta saadaan pysyvä pääsy järjestelmään
+- Komento ja hallinta (C2): Järjestelmä ottaa yhteyden internettiin, jotta C2 kanava saadaan muodostettua.  
+- Toimet tavoitteiden saavuttamiseksi: Kun aiemmat toimet on hoidetu, hyökkääjä voi alkaa työstämään kohti heidän tavoitteita
+
+### € Santos et al 
+
+
+
+### KKO 2003:36
+
+---
 
 ## Kali asennus
 
@@ -33,3 +58,13 @@ Kokeillaan yhteyttä vielä selaimen kautta varmuudeksi
 ![image](https://github.com/user-attachments/assets/37e3e6d3-da80-46c1-86f0-67e64ab08b41)
 
 Nettiyhteys on katkaistu
+
+## Lähteet
+
+https://terokarvinen.com/tunkeutumistestaus/
+
+https://www.withsecure.com/fi/whats-new/podcasts/herrasmieshakkerit
+
+https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
+
+https://www.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00/
