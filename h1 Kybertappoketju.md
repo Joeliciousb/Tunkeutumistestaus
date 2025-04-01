@@ -21,9 +21,28 @@ Tämä teksti kertoo kybertappoketjun eri vaiheista
 
 ### € Santos et al 
 
+- Kohteen on mahdollista havaita tiedustelu
 
+#### nmap
+- sS: tekee osan TCP yhteydestä
+- vv: verbocity level
+- T4: lisää nopeutta
+- A: Tunnistaa käyttöjärjestelmän
+- Pn: hyödyllinen online skannauksissa
+- tulosteen voi tallentaa tiedostoon
+
+#### masscan
+- paljon ja nopeasti
+
+#### EyeWitness
+- kuvankaappauksia verkkosivuista
 
 ### KKO 2003:36
+
+- A oli porttiskannannut osuuspankin tietojärjestelmiä
+- Käräjäoikeus hylkäsi syytteen, sillä näyttöä ei ollut riittävästi
+- Hovioikeus katsoi että näyttöä on riittävästi ja määräsi A:n korvaaman vahingot osuuspankille
+- Korkeimmassa oikeudessa A todettiin syylliseksi
 
 ---
 
@@ -58,6 +77,39 @@ Kokeillaan yhteyttä vielä selaimen kautta varmuudeksi
 ![image](https://github.com/user-attachments/assets/37e3e6d3-da80-46c1-86f0-67e64ab08b41)
 
 Nettiyhteys on katkaistu
+
+--- 
+
+## Oman koneen porttiskannaus
+
+![image](https://github.com/user-attachments/assets/765d3f6a-3478-4972-b405-0d46632bd0ec)
+
+Parametrit: 
+- T4: Olettaa nettiyhteyden olevan hyvä, joten skannaus on nopeampi
+- A: Hakee myös tietoa käyttöjärjestelmästä
+- localhost: porttiskannauksen kohde
+
+Skannauksesta huomataan, että localhost:issa ei ole yhtään avointa porttia. 
+
+--- 
+
+## Demonien asennus
+
+Kali Linux:ssa on asennettuna jo valmiiksi MySQL ja apache2. Käynnistetään daemonit. 
+
+![image](https://github.com/user-attachments/assets/6127a59b-0e23-4aa9-bd26-06f53ad058c5)
+
+--
+
+![image](https://github.com/user-attachments/assets/9910894f-bc1e-4d8d-a07c-3b6bd537fe4a)
+
+Skannataan uudelleen. 
+
+![image](https://github.com/user-attachments/assets/2cd5c624-5da0-41fa-a9e2-46db57a19774)
+
+Skannaus löysi 2 avointa porttia: 80 jota apache käyttää & 3306 jota mariaDB käyttää. 
+
+
 
 ## Lähteet
 
