@@ -109,6 +109,40 @@ Skannataan uudelleen.
 
 Skannaus löysi 2 avointa porttia: 80 jota apache käyttää & 3306 jota mariaDB käyttää. 
 
+---
+
+## Metasploitable 2 asennus
+
+Ladataan Metasploitable 2. 
+
+![image](https://github.com/user-attachments/assets/33fb2012-df1c-4e48-b9d1-d1865a951cdd)
+
+Puretaan ladattu .zip ja avataan VirtualBox. Luodaan uusi virtuaalikone. 
+
+![image](https://github.com/user-attachments/assets/97ae15fb-b685-4302-8df3-a436e3862b2a)
+
+Valitaan "Use an existing virtual hard disk file" ja liitetään ladattu tiedosto. 
+
+![image](https://github.com/user-attachments/assets/ced175ad-6720-4885-a22f-c94e23fad486)
+
+---
+
+## Virtuaaliverkko koneiden välille
+
+Luodaan Host-only verkko
+
+![Screenshot 2025-04-02 001325](https://github.com/user-attachments/assets/30f1ab68-28cd-4adb-976d-341e7c4a2f07)
+
+Kali verkkoasetukset
+
+Adapter1 NAT, koska haluan että voin myös tarvittaessa päästä nettiin
+![Screenshot 2025-04-01 232803](https://github.com/user-attachments/assets/63da5836-0992-46a4-8b01-fc118656b3c4)
+Adapter2 käyttää Host-only verkkoa
+![Screenshot 2025-04-01 232820](https://github.com/user-attachments/assets/2edf1e6b-c810-4459-a4a3-980a42b15c10)
+
+Metasploitable2 verkkoasetukset
+Käyttää Host-only verkkoa
+![Screenshot 2025-04-01 232547](https://github.com/user-attachments/assets/c0008d80-1483-4a5b-a236-e99e3f3a0d20)
 
 
 ## Lähteet
