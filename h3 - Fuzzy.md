@@ -1,5 +1,16 @@
 # Fuzzy
 
+## Tiivistelmät
+
+### Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf
+
+Tutoriaalissa Karvinen esittelee ffuf työkalun, kertoo miten se ladataan ja opettaa asentamaan maaliympäristön johon voi testata työkalua. 
+Tutoriaalissa on myös kaksi harjoitusta, jotka on tarkoitus tehdä itse. 
+
+### ffuf - README.md
+
+ffuf (Fuzz Faster U Fool) on suosittu työkalun fuzzaamiseen. Työkalun GitHub sivulla on README.md tiedosto, jossa esittellään ffuf, sen asennusohjeet sekä työkalun käyttöä esimerkkien avulla. 
+
 ## Fuzzzz
 
 Latasin binäärin `dirfuzt-1` Karvisen sivuilta (Find Hidden Web Directories - Fuzz URLs with ffuf) ja käynnistin maaliympäristön
@@ -67,6 +78,8 @@ wget http://localhost/wordlist/subdomains.txt
 
 Karvinen Tero, Tunkeutumistestaus, luettavissa: https://terokarvinen.com/tunkeutumistestaus/, luettu 11.4.2025
 
-Karvinen Tero, Find Hidden Web Directories - Fuzz URLs with ffuf, luettavissa: https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/, luettu 11.4.2025
+Karvinen Tero, Find Hidden Web Directories - Fuzz URLs with ffuf, luettavissa: https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/, luettu 14.4.2025
 
-https://github.com/BuildHackSecure/ffufme
+BuilHackSecure, fuffme.md, luettavissa https://github.com/BuildHackSecure/ffufme, luettu 11.4.2025
+
+ffuf, README.md, luettavissa: https://github.com/ffuf/ffuf/blob/master/README.md, luettu 14.4.2025
