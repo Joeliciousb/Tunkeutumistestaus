@@ -72,6 +72,95 @@ wget http://localhost/wordlist/subdomains.txt
 
 ### Ffufme harjoitukset
 
+#### Basic Content Discovery 
+
+Tavoitteena löytää tiedostot `class` & `development.log`. 
+
+Ajetaan komento ```ffuf -w ~/wordlists/common.txt -u http://localhost/cd/basic/FUZZ```
+
+![image](https://github.com/user-attachments/assets/6af385c9-91b8-4a17-8aa8-a1795171d0b2)
+
+---
+
+#### Recursion
+
+Tavoitteena löytää `/admin/users/96` tiedosto
+
+Ajetaan komento `ffuf -w ~/wordlists/common.txt -recursion -u http://localhost/cd/recursion/FUZZ` 
+  - `-recursion` flagi tarkoittaa, että mikäli ffuf löytää hakemiston, se ajaa uuden skannauksen myös siihen hakemistoon
+
+![image](https://github.com/user-attachments/assets/81c8ad0e-bd4d-4f6c-bb99-3a193ea1a2ee)
+
+---
+
+#### File extensions
+
+Tavoitteena löytää tiedosto `users.log` tiedosto `/logs` hakemistosta
+
+Käytetään komentoa `ffuf -w ~/wordlists/common.txt -e .log -u http://localhost/cd/ext/logs/FUZZ`
+  - `e .log` määrittelee, että haetaan tiedostoja joiden filetype on = log
+
+![image](https://github.com/user-attachments/assets/80e71e3b-30ee-445d-80c7-9bbaf715b5d2)
+
+---
+
+#### No 404 Status
+
+Tavoitteena löytää `secret` tiedosto
+
+Jos ajetaan npc ffuf komento huomataan, että kaikki vastaukset ovat status 200 size 669. 
+
+![image](https://github.com/user-attachments/assets/efe7f1bc-df6f-409d-9fa1-391d8a2ca839)
+
+Lisätään komentoon `-fs` joka suodattaa pois tietyn kokoiset vastaukset, eli 669 tavua tässä tapauksessa
+
+![image](https://github.com/user-attachments/assets/cdd7f728-ca7d-47be-a47c-23234b9c956f)
+
+---
+
+#### Param Mining
+
+Tavoitteena on löytää oikea parametri 
+
+![image](https://github.com/user-attachments/assets/67c01657-0b09-4b88-8b88-5585bd6b70f9)
+
+Ajetaan komento `ffuf -w ~/wordlists/parameters.txt -u http://localhost/cd/param/data?FUZZ=1`
+  - Komento sovittaa jokaista wordlistin riviä parametriksi, (id=1, test=1, debug=1 jne.)
+
+![image](https://github.com/user-attachments/assets/dc44e5a3-6a4c-4660-b9c7-c39af4f1183a)
+
+---
+
+#### Rate Limit
+
+Tavoitteena ohittaa palvelimen rate limit ja löytää `oracle` tiedosto
+
+Rate limit aiheuttaa sen, että jos kokeillaan komentoa `ffuf -w ~/wordlists/common.txt -u http://ffuf.test/cd/rate/FUZZ -mc 200,429`, vauhti on liian kova ja palvelin vastaa 429 statuksella, eli tilapäiset bännit
+
+![image](https://github.com/user-attachments/assets/0551209b-6514-4039-84dc-169b66a8a921)
+
+Tämän voi ohittaa muokkaamalla komentoa `ffuf -w ~/wordlists/common.txt -t 5 -p 0.1 -u http://ffuf.test/cd/rate/FUZZ -mc 200,429`
+  - `-t` = "Thread", eli kuinka monta pyyntöä lähetään yhtä aikaa
+  - `p` = "Pause", eli ohjelma pitää määritellyn tauon jokaisen pyynnön välissä
+Nyt pyyntöjä lähtee `50/s`
+
+![image](https://github.com/user-attachments/assets/3144d115-f8c9-42db-bf1e-3bfba9d4ba07)
+
+---
+
+#### Virtual Host Enumeration
+
+Tavoite löytää subdomain `redhat`
+
+Ajetaan komento `ffuf -w ~/wordlists/subdomains.txt -H "Host: FUZZ.ffuf.me" -u http://localhost`
+  - `-H "Host: FUZZ.ffuf.me"` = vaihtaa HOST-otsikon wordlistin arvoihin
+
+![image](https://github.com/user-attachments/assets/61f80a3c-5fae-47ff-bf73-e79bcab32c87)
+
+Vastauksilla on sama koko, eli 1495 tavua. Lisätään `-fs 1495` komentoon.
+
+![image](https://github.com/user-attachments/assets/eec522a2-10e1-4879-babb-3dbd185fb574)
+
 ---
 
 ## Lähteet
