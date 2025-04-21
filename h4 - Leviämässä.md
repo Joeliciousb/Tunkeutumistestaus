@@ -128,8 +128,23 @@ Halusin testata murtaa .pdf tiedoston salauksen. Etsin netistä salattuja .pdf t
 
 ![image](https://github.com/user-attachments/assets/e43306a0-7305-4b4b-8f7d-ad96cfb5a44f)
 
-
 ---
+
+## Tiiviste
+
+Luodaan uusi ssh256 hash salasanasta `strongpassword`
+
+![image](https://github.com/user-attachments/assets/3bb59897-9696-4571-8f98-19da5fe991b6)
+
+hashid kommennon avulla voidaan testata ssh256 murtamista (Hashcat Mode: 1400)
+
+![image](https://github.com/user-attachments/assets/a8a73091-eee3-4351-90af-33b5c838b7ee)
+
+Ajetaan komento: `hashcat -m 1400 '05926fd3e6ec8c13c5da5205b546037bdcf861528e0bdb22e9cece29e567a1bc' rockyou.txt -o solved`
+
+![image](https://github.com/user-attachments/assets/a653871d-95ad-4928-81b9-c59d26de44e6)
+
+![image](https://github.com/user-attachments/assets/8f88eb78-fd0a-45ef-a81a-20941de40e5d)
 
 ## Lähteet
 
