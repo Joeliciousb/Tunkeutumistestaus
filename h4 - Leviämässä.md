@@ -122,11 +122,30 @@ Salasana löytyi: `butterfly`
 
 ## Tiedosto
 
-Halusin testata murtaa .pdf tiedoston salauksen. Etsin netistä salattuja .pdf tiedostoja ja löysin tämän: 
+Halusin testata murtaa .pdf tiedoston salauksen. Latasin netistä jonkun .pdf tiedoston ja lisäsin siihen salasanan kommennolla: 
 
+`qpdf --encrypt computer computer 256 -- dogs.pdf dogs_encrypted.pdf`
 
+Salasana: computer
 
-![image](https://github.com/user-attachments/assets/e43306a0-7305-4b4b-8f7d-ad96cfb5a44f)
+![image](https://github.com/user-attachments/assets/4d47cb32-0873-4643-829f-2506dc7294c7)
+
+![image](https://github.com/user-attachments/assets/a93cd8b5-0931-4132-bda0-53242b3f88ac)
+
+Ajetaan komennot
+
+```
+pdf2john dogs_encrypted.pdf > dogs_encrypted.pdf.hash
+john dogs_encrypted.pdf.hash
+```
+
+![image](https://github.com/user-attachments/assets/8c4c4d83-cb35-4447-a7b0-6e62dae5d8e0)
+
+John The Ripper löysi oikean salasanan. 
+
+Testasin vielä muokata salasanaa hieman > computer123
+
+![image](https://github.com/user-attachments/assets/c4597a87-9a72-4548-bcf1-4124761e0e61)
 
 ---
 
