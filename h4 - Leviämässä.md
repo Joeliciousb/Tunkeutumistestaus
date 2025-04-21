@@ -201,6 +201,8 @@ set LPORT 4444`
 
 Näkymä uhrikoneelta: 
 
+![IMG_0507](https://github.com/user-attachments/assets/a9a7b520-4390-427d-acf8-272f6bb6b16b)
+
 Näkymä hyökkääjäkoneelta kun uhri on ajanut haittaohjelman
 
 ![image](https://github.com/user-attachments/assets/1b26a6ea-99e2-4759-af96-7e325002b6ac)
