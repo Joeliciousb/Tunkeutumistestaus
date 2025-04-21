@@ -26,7 +26,28 @@ Tässä tutoriaalissa Karvinen esittelee John The Ripper työkalun. John The Rip
 
 ### Kennedy et al 2025: Metasploit: File-Format Exploits (Wrapping Up loppuun)
 
+Tekstissä kerrotaan, miten haavoittuvuus Wordissä mahdollisti etäkoodin suorittamisen. 
+
+Esimerkissä hyökkäys valmistellaan metasploitin avulla, jossa uhrin koneelle annetaan haitallinen .docx tiedosto. 
+
+Kun uhri avaa .docx tiedoston, hänen koneensa avaa meterpreter shellin ja ottaa yhteyden hyökkääjän koneeseen (`reverse_tcp`)
+
 ### Singh 2025: The Ultimate Kali Linux Book: Understanding Active Directory
+
+Active Directory on Microsoft Windows serverin hakemistopalvelu, jonka avulla käyttäjät voivat kirjautua verkkoon yhdellä tunnuksella
+
+Keskisiä käsitteitä:
+
+- Forest - Korkein hallinnollinen taso, koostuu yhdestä tai useammasta domainista
+- Domain - kokonaisuus, jossa käyttäjiä, ryhmiä tai ja laitteita
+- Eri trust-mallit:
+  - One-way trust
+  - Two-way trust
+  - Transitive trust
+  - Non-transitive trust
+  - Forest trust
+- NTLM v2 hash
+- LDAP-protokolla
 
 ---
 
@@ -75,15 +96,38 @@ Katsotaan output tiedoston sisältö komennolla `cat solved`
 
 ![image](https://github.com/user-attachments/assets/6bb2d0e3-68c4-44e9-b345-ecb091f6ba69)
 
+---
+
 ## John The Ripper
 
 ### Asennus 
 
 Valmiiksi asennettuna Kali Linuxiin
 
-### 
+### Esimerkkitiedoston murtaminen
 
-##
+Murretaan Karvisen John The Ripper tutoriaalissa käyttämää .zip tiedostoa. 
+
+`wget https://TeroKarvinen.com/2023/crack-file-password-with-john/tero.zip`
+
+Ajetaan komento `zip2john tero.zip > tero.zip.hash`, jonka jälkeen voimme murtaa salasanan kommennolla `john tero.zip.hash`
+
+![image](https://github.com/user-attachments/assets/a792612d-2bf7-4d8f-b0fb-5c0c264b84ee)
+
+Salasana löytyi: `butterfly`
+
+![image](https://github.com/user-attachments/assets/33ec473c-1b26-4f9a-90dd-e7e5be8eec8a)
+
+---
+
+## Tiedosto
+
+Halusin testata murtaa .pdf tiedoston salauksen. Etsin netistä salattuja .pdf tiedostoja ja löysin tämän: 
+
+
+
+![image](https://github.com/user-attachments/assets/e43306a0-7305-4b4b-8f7d-ad96cfb5a44f)
+
 
 ---
 
@@ -96,3 +140,7 @@ Karvinen Tero, Cracking Passwords with Hashcat, luettavissa https://terokarvinen
 Karvinen Tero, Crack File Password With John, luettavissa https://terokarvinen.com/2023/crack-file-password-with-john/, luettu 21.4.2025
 
 O'Reilly, Security Penetration - Testing The Art of Hacking, katsotttavissa https://learning.oreilly.com/videos/security-penetration-testing/9780134833989/9780134833989-sptt_00_06_01_00/ (maksumuurin takana), katsottu 21.4.2025
+
+O'Reilly, Metasploit 2nd edition, Client-Side Attacks, luettavissa https://learning.oreilly.com/library/view/metasploit-2nd-edition/9798341620032/xhtml/chapter9.xhtml#toc-link_128 (maksumuurin takana), luettu 21.4.2025
+
+O'Reilly, The Ultimate Kali Linux Book Third Edition, Understanding Active Directory, luettavissa https://learning.oreilly.com/library/view/the-ultimate-kali/9781835085806/Text/Chapter_12.xhtml#_idParaDest-271 (maksumuurin takana), luettu 21.4.2025
