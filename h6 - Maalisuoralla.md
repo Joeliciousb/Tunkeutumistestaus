@@ -38,9 +38,25 @@ Mennään katsomaan miltä sivusto näyttää
 
 ### Task 3 
 
+![image](https://github.com/user-attachments/assets/fc352216-2e78-4ca5-a750-a3a6530f36fe)
 
+En tiedä, joten googletan `linux hostname resolution` ja löydän sopivan artikkelin[^1] jossa mainitaan `etc/hosts`
+
+![image](https://github.com/user-attachments/assets/8256cfe3-2a1d-424f-a1ea-b8b313de2760)
+
+![image](https://github.com/user-attachments/assets/27fba477-433d-4c42-878d-a9810341fdd5)
+
+### Task 4
+
+![image](https://github.com/user-attachments/assets/9febce97-003f-48b0-9ca6-989fd76806f9)
+
+Kokeillaan `ffuf` työkalua. 
+
+![image](https://github.com/user-attachments/assets/e0234d94-59fd-4566-a348-9215707d9b9f)
 
 
 ## Lähteet
 
 Karvinen Tero, Tunkeutumistestaus, luettavissa https://terokarvinen.com/tunkeutumistestaus/, luettu 13.5.2025
+
+[^1]: Medium, Yuminlee2, Linux Networking: DNS, luettavissa https://yuminlee2.medium.com/linux-networking-dns-7ff534113f7d, luettu 13.5.2025
